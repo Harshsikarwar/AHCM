@@ -1,0 +1,235 @@
+.alerts-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    border:1px solid #ececec;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+    width:100%;
+}
+
+/* Header */
+
+.alerts-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:22px;
+}
+
+.alerts-header h3{
+
+    font-size:22px;
+
+    color:#333;
+}
+
+.alerts-header span{
+
+    background:#fff3eb;
+
+    color:#f97316;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+}
+
+/* List */
+
+.alerts-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+}
+
+/* Item */
+
+.alert-item{
+
+    display:flex;
+
+    gap:16px;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    border-left:5px solid;
+
+    transition:.3s;
+}
+
+.alert-item:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 6px 16px rgba(0,0,0,.06);
+}
+
+/* Types */
+
+.alert-item.critical{
+
+    background:#fff5f5;
+
+    border-color:#dc2626;
+}
+
+.alert-item.warning{
+
+    background:#fff8f1;
+
+    border-color:#f97316;
+}
+
+.alert-item.success{
+
+    background:#f4fff8;
+
+    border-color:#22c55e;
+}
+
+/* Icon */
+
+.alert-icon{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:22px;
+
+    flex-shrink:0;
+}
+
+.critical .alert-icon{
+
+    background:#dc2626;
+
+    color:#fff;
+}
+
+.warning .alert-icon{
+
+    background:#f97316;
+
+    color:#fff;
+}
+
+.success .alert-icon{
+
+    background:#22c55e;
+
+    color:#fff;
+}
+
+/* Content */
+
+.alert-content{
+
+    flex:1;
+}
+
+.alert-content h4{
+
+    color:#222;
+
+    margin-bottom:6px;
+
+    font-size:17px;
+}
+
+.alert-content p{
+
+    color:#666;
+
+    line-height:1.6;
+
+    font-size:14px;
+
+    margin-bottom:12px;
+}
+
+.alert-time{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#999;
+
+    font-size:13px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .alerts-card{
+
+        padding:18px;
+    }
+
+    .alert-item{
+
+        align-items:flex-start;
+    }
+
+    .alerts-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+    }
+}
+
+@media(max-width:480px){
+
+    .alert-item{
+
+        flex-direction:column;
+    }
+
+    .alert-icon{
+
+        width:46px;
+
+        height:46px;
+
+        font-size:20px;
+    }
+
+    .alert-content h4{
+
+        font-size:16px;
+    }
+}

@@ -1,0 +1,17 @@
+.TotalCard{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.Card{
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+@media(max-width:800px){
+    .TotalCard, .Card{
+        flex-direction: column;
+    }
+}

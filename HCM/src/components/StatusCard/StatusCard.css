@@ -1,0 +1,137 @@
+.status-card{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.06);
+
+    border:1px solid #f4f4f4;
+
+    transition:.3s ease;
+
+    cursor:pointer;
+}
+
+.status-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 12px 28px rgba(249,115,22,.18);
+}
+
+.status-icon{
+
+    width:68px;
+
+    height:68px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#fff;
+
+    font-size:28px;
+
+    flex-shrink:0;
+}
+
+.status-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+}
+
+.status-content h4{
+
+    font-size:15px;
+
+    color:#777;
+
+    font-weight:500;
+}
+
+.status-content h2{
+
+    font-size:30px;
+
+    color:#222;
+
+    font-weight:700;
+}
+
+.status-change{
+
+    font-size:13px;
+
+    color:#f97316;
+
+    font-weight:600;
+}
+
+/* Tablet */
+
+@media(max-width:768px){
+
+    .status-card{
+
+        padding:18px;
+    }
+
+    .status-icon{
+
+        width:58px;
+        height:58px;
+
+        font-size:24px;
+    }
+
+    .status-content h2{
+
+        font-size:24px;
+    }
+}
+
+/* Mobile */
+
+@media(max-width:480px){
+
+    .status-card{
+
+        padding:16px;
+    }
+
+    .status-icon{
+
+        width:50px;
+        height:50px;
+
+        font-size:20px;
+    }
+
+    .status-content h2{
+
+        font-size:22px;
+    }
+
+    .status-content h4{
+
+        font-size:14px;
+    }
+}
