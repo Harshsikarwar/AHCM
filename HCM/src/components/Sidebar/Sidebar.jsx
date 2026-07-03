@@ -18,6 +18,7 @@ import {
   FaUsers,
   FaCog,
   FaSignOutAlt,
+  FaUser
 } from "react-icons/fa";
 
 const Sidebar = () => {
@@ -73,6 +74,11 @@ const Sidebar = () => {
           <NavLink to="/medicines" onClick={closeSidebar}>
             <FaPills />
             <span>Medicines</span>
+          </NavLink>
+
+          <NavLink to="/patient_footfall" onClick={closeSidebar}>
+            <FaUser />
+            <span>Patient Footfall</span>
           </NavLink>
 
           <NavLink to="/doctors" onClick={closeSidebar}>

@@ -1,0 +1,158 @@
+.bed-page{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+.bed-summary{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.bed-card{
+    background:#fff;
+    border-radius:18px;
+    padding:24px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.bed-card:hover{
+    transform:translateY(-4px);
+}
+
+.bed-icon{
+    width:70px;
+    height:70px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:28px;
+}
+
+.total .bed-icon{
+    background:#f97316;
+}
+
+.occupied .bed-icon{
+    background:#dc2626;
+}
+
+.available .bed-icon{
+    background:#22c55e;
+}
+
+.bed-card h2{
+    font-size:34px;
+    color:#333;
+    margin-bottom:5px;
+}
+
+.bed-card p{
+    color:#777;
+}
+
+.bed-table-card{
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+    overflow:hidden;
+}
+
+.table-header{
+    padding:20px 24px;
+    border-bottom:1px solid #eee;
+}
+
+.table-header h2{
+    color:#333;
+}
+
+.table-container{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    min-width:800px;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#fff3eb;
+}
+
+th{
+    text-align:left;
+    padding:16px;
+    color:#f97316;
+}
+
+td{
+    padding:16px;
+    border-bottom:1px solid #eee;
+}
+
+tbody tr:hover{
+    background:#fffaf7;
+}
+
+.ward-name{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.ward-name svg{
+    color:#f97316;
+}
+
+.progress-bar{
+    width:160px;
+    height:10px;
+    background:#eee;
+    border-radius:20px;
+    overflow:hidden;
+    display:inline-block;
+    margin-right:10px;
+}
+
+.progress{
+    height:100%;
+    background:linear-gradient(90deg,#f97316,#dc2626);
+    border-radius:20px;
+}
+
+td span{
+    font-size:13px;
+    font-weight:600;
+    color:#555;
+}
+
+@media(max-width:768px){
+
+    .bed-card{
+        padding:18px;
+    }
+
+    .bed-icon{
+        width:60px;
+        height:60px;
+        font-size:24px;
+    }
+
+    .bed-card h2{
+        font-size:28px;
+    }
+
+    .progress-bar{
+        width:100px;
+    }
+
+}

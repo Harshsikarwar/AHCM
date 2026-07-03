@@ -1,0 +1,171 @@
+.doctor-page{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+.doctor-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.create-btn{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:#f97316;
+    color:#fff;
+    border:none;
+    padding:12px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.create-btn:hover{
+    background:#dc2626;
+}
+
+.doctor-toolbar{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:15px;
+}
+
+.doctor-search{
+    display:flex;
+    align-items:center;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:0 15px;
+}
+
+.doctor-search svg{
+    color:#f97316;
+}
+
+.doctor-search input{
+    width:100%;
+    padding:12px;
+    border:none;
+    outline:none;
+}
+
+.doctor-toolbar select{
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:12px;
+    outline:none;
+}
+
+.doctor-table,
+.history-card{
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+    overflow:auto;
+}
+
+table{
+    width:100%;
+    min-width:850px;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#fff3eb;
+}
+
+th{
+    text-align:left;
+    padding:16px;
+    color:#f97316;
+}
+
+td{
+    padding:16px;
+    border-bottom:1px solid #eee;
+}
+
+tbody tr:hover{
+    background:#fffaf7;
+}
+
+.doctor-name{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.doctor-name svg{
+    color:#f97316;
+}
+
+.attendance{
+    padding:6px 14px;
+    color:#fff;
+    border-radius:20px;
+    font-size:13px;
+}
+
+.present{
+    background:#22c55e;
+}
+
+.absent{
+    background:#dc2626;
+}
+
+.present-btn,
+.absent-btn{
+    border:none;
+    color:#fff;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-right:8px;
+}
+
+.present-btn{
+    background:#22c55e;
+}
+
+.absent-btn{
+    background:#dc2626;
+}
+
+.history-card{
+    padding:20px;
+}
+
+.history-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#f97316;
+    margin-bottom:20px;
+}
+
+@media(max-width:900px){
+
+    .doctor-toolbar{
+        grid-template-columns:1fr;
+    }
+
+    .doctor-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .create-btn{
+        width:100%;
+        justify-content:center;
+    }
+
+}

@@ -3,6 +3,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import {Provider} from 'react-redux';
+import { store } from "./app/store";
+
 import ReactDOM from "react-dom/client";
 
 import Layout from "./layouts/Layout";
@@ -10,7 +13,13 @@ import AuthLayout from "./layouts/AuthLayout";
 import ProtectedLayout from "./layouts/ProtectedLayout";
 
 import Dashboard from "./pages/Dashboard";
+import HealthCenters from "./pages/HealthCenters";
 import Login from "./pages/Login";
+import Medicine from "./pages/Medicine";
+import Doctors from "./pages/Doctors";
+import Laboratory from "./pages/Laboratory";
+import Bed from "./pages/Bed";
+import PatientFootfall from "./pages/PatientFootfall";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +41,30 @@ const router = createBrowserRouter([
             path: "/",
             element: <Dashboard />,
           },
+          {
+            path: "/centres",
+            element: <HealthCenters />,
+          },
+          {
+            path: "/medicines",
+            element: <Medicine />,
+          },
+          {
+            path: "/doctors",
+            element: <Doctors />,
+          },
+          {
+            path: "/patient_footfall",
+            element: <PatientFootfall />,
+          },
+          {
+            path: "/laboratory",
+            element: <Laboratory />,
+          },
+          {
+            path: "/beds",
+            element: <Bed />,
+          },
         ],
       },
     ],
@@ -39,5 +72,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
 );

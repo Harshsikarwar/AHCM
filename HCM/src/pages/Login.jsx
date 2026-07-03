@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../features/auth/authSlice";
 import "../styles/login.css";
 import Auth from "../auth/auth";
 
 function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,7 +18,7 @@ function Login() {
 
     setLoading(true);
 
-    const { error } = await Auth.login(email, password);
+    const { data, error } = await Auth.login(email, password);
 
     setLoading(false);
 
@@ -23,6 +26,8 @@ function Login() {
       alert(error.message);
       return;
     }
+
+    dispatch(loginSuccess(data));
 
     navigate("/");
   };
@@ -73,7 +78,11 @@ function Login() {
               <a href="/">Forgot Password?</a>
             </div>
 
-            <button type="submit" className="login-btn" disabled={loading}>
+            <button
+              type="submit"
+              className="login-btn"
+              disabled={loading}
+            >
               {loading ? "Logging in..." : "Login"}
             </button>
           </form>

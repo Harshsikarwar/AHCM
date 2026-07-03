@@ -1,0 +1,142 @@
+.patient-records{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+.records-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.records-header h2{
+    color:#333;
+}
+
+.records-header button{
+    border:none;
+    background:#f97316;
+    color:#fff;
+    padding:12px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.records-header button:hover{
+    background:#dc2626;
+}
+
+.records-filter{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:16px;
+}
+
+.search-box{
+    display:flex;
+    align-items:center;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:0 15px;
+}
+
+.search-box svg{
+    color:#f97316;
+}
+
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+    padding:12px;
+}
+
+.records-filter select{
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:12px;
+    outline:none;
+}
+
+.date-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:0 15px;
+    background:#fff;
+}
+
+.date-box svg{
+    color:#f97316;
+}
+
+.date-box input{
+    border:none;
+    outline:none;
+    padding:12px;
+    width:100%;
+}
+
+.records-table{
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    min-width:1000px;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#fff3eb;
+}
+
+th{
+    padding:16px;
+    text-align:left;
+    color:#f97316;
+}
+
+td{
+    padding:16px;
+    border-bottom:1px solid #eee;
+}
+
+tbody tr:hover{
+    background:#fffaf7;
+}
+
+.patient-count{
+    display:inline-block;
+    background:#22c55e;
+    color:#fff;
+    padding:6px 14px;
+    border-radius:20px;
+    font-weight:600;
+}
+
+@media(max-width:900px){
+
+    .records-filter{
+        grid-template-columns:1fr;
+    }
+
+    .records-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .records-header button{
+        width:100%;
+    }
+
+}

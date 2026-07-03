@@ -5,6 +5,7 @@ import RecentActivity from "../components/RecentActivity/RecentActivity"
 import AIRecommendation from "../components/AIRecommendation/AIRecommendation"
 import Alerts from "../components/Alerts/Alerts"
 import '../styles/dashboard.css';
+import {FaHospital, FaUser, FaBed, FaExclamationTriangle} from "react-icons/fa";
 export default function Dashboard(){
     const data = {
         labels: ["Jan", "Feb", "Mar", "Apr", "May"],
@@ -56,10 +57,10 @@ export default function Dashboard(){
             <div style={{marginBottom:"20px"}}><h1>Dashboard</h1></div>
             <div style={{marginBottom:"10px"}}><h3>Quick Statistics</h3></div>
             <div className="TotalCard" style={{display:"flex", gap:"10px"}}>
-                <StatusCard title={"Total Centers"} value={10}/>
-                <StatusCard title={"Patients"} value={500}/>
-                <StatusCard title={"Beds"} value={600}/>
-                <StatusCard title={"Alerts"} value={150}/>
+                <StatusCard title={"Total Centers"} icon={<FaHospital/>} value={10}/>
+                <StatusCard title={"Patients"} icon={<FaUser/>} value={500}/>
+                <StatusCard title={"Beds"} icon={<FaBed/>} value={600}/>
+                <StatusCard title={"Alerts"} icon={<FaExclamationTriangle/>} value={150}/>
             </div>
             <div className="Card">
                 <ChartCard title={"Patients Trend"} type={"bar"} data={data}/>

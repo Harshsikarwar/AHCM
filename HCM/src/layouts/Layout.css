@@ -24,6 +24,16 @@ body{
     transition:.3s;
 }
 
+.loading{
+    display: flex;
+    width: fit-content;
+    height: 100%;
+    justify-self: center;
+    padding: 20px;
+    background-color: orangered;
+    color: white;
+}
+
 @media(max-width:992px){
 
     .main-content{

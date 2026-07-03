@@ -1,0 +1,20 @@
+.PFCard{
+    display: flex;
+    margin-bottom: 20px;
+    gap: 10px;
+    width: auto;
+    justify-content: space-between;
+}
+
+.PFCard2{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+@media(max-width:800px){
+    .PFCard, .PFCard2{
+        flex-direction: column;
+    }
+}

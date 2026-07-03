@@ -1,0 +1,229 @@
+.centre-details{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+}
+
+/* Header */
+
+.details-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.details-header h2{
+
+    color:#333;
+}
+
+.details-header select{
+
+    padding:12px 16px;
+
+    border-radius:10px;
+
+    border:1px solid #ddd;
+
+    outline:none;
+
+    min-width:260px;
+}
+
+/* Cards */
+
+.details-card{
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+    border:1px solid #eee;
+}
+
+.details-card h3{
+
+    color:#f97316;
+
+    margin-bottom:20px;
+}
+
+/* Grid */
+
+.details-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+}
+
+.details-grid div{
+
+    background:#fafafa;
+
+    padding:18px;
+
+    border-radius:12px;
+}
+
+.details-grid svg{
+
+    color:#f97316;
+
+    margin-bottom:10px;
+
+    font-size:18px;
+}
+
+.details-grid span{
+
+    display:block;
+
+    color:#777;
+
+    font-size:13px;
+
+    margin-bottom:6px;
+}
+
+.details-grid p{
+
+    font-weight:600;
+
+    color:#333;
+}
+
+/* Status */
+
+.active{
+
+    color:#22c55e;
+}
+
+.inactive{
+
+    color:#dc2626;
+}
+
+/* Bottom */
+
+.bottom-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:20px;
+}
+
+.address-box{
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:flex-start;
+}
+
+.address-box svg{
+
+    color:#f97316;
+
+    margin-top:3px;
+}
+
+.location-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:18px;
+}
+
+.location-item svg{
+
+    color:#f97316;
+}
+
+.location-item span{
+
+    width:90px;
+
+    color:#777;
+}
+
+.location-item p{
+
+    font-weight:600;
+}
+
+/* Button */
+
+.edit-centre-btn{
+
+    width:max-content;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#f97316;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.edit-centre-btn:hover{
+
+    background:#dc2626;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+    .bottom-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .details-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .details-header select{
+
+        width:100%;
+    }
+}
