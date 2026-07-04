@@ -20,6 +20,8 @@ import Doctors from "./pages/Doctors";
 import Laboratory from "./pages/Laboratory";
 import Bed from "./pages/Bed";
 import PatientFootfall from "./pages/PatientFootfall";
+import CreateUser from "./pages/CreateUser";
+import Users from './pages/Users'
 
 const router = createBrowserRouter([
   {
@@ -64,6 +66,14 @@ const router = createBrowserRouter([
           {
             path: "/beds",
             element: <Bed />,
+          },
+          {
+            path: "/users",
+            element: <Users />,
+          },
+          {
+            path: "/users/create",
+            element: <CreateUser />,
           },
         ],
       },

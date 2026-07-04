@@ -1,0 +1,90 @@
+.medicine-stock{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+.stock-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.stock-header h2{
+    color:#333;
+}
+
+.stock-filters{
+    display:grid;
+    grid-template-columns:2fr repeat(3,1fr);
+    gap:16px;
+}
+
+.search-box{
+    display:flex;
+    align-items:center;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:0 15px;
+}
+
+.search-box svg{
+    color:#f97316;
+}
+
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+    padding:12px;
+}
+
+.stock-filters select{
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+    background:#fff;
+}
+
+.table-wrapper{
+    overflow:scroll;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+    height: 500px;
+}
+
+table{
+    width:100%;
+    min-width:700px;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#fff3eb;
+}
+
+th{
+    text-align:left;
+    color:#f97316;
+    padding:16px;
+}
+
+td{
+    padding:16px;
+    border-bottom:1px solid #eee;
+}
+
+tbody tr:hover{
+    background:#fffaf7;
+}
+
+@media(max-width:900px){
+
+    .stock-filters{
+        grid-template-columns:1fr;
+    }
+
+}

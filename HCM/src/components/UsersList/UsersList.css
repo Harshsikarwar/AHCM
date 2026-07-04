@@ -1,0 +1,291 @@
+.users-page{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+.users-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.users-header h2{
+    font-size:30px;
+    color:#222;
+    margin-bottom:5px;
+}
+
+.users-header p{
+    color:#777;
+}
+
+.create-user-btn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border:none;
+    background:linear-gradient(135deg,#f97316,#dc2626);
+    color:#fff;
+    padding:14px 24px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.create-user-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(249,115,22,.25);
+}
+
+.users-filters{
+    display:grid;
+    grid-template-columns:2fr repeat(5,1fr);
+    gap:16px;
+}
+
+.search-box{
+    display:flex;
+    align-items:center;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:0 16px;
+    transition:.3s;
+}
+
+.search-box:focus-within{
+    border-color:#f97316;
+    box-shadow:0 0 0 3px rgba(249,115,22,.12);
+}
+
+.search-box svg{
+    color:#f97316;
+    font-size:15px;
+}
+
+.search-box input{
+    width:100%;
+    padding:14px 12px;
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:15px;
+}
+
+.users-filters select{
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:14px;
+    background:#fff;
+    outline:none;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.users-filters select:focus{
+    border-color:#f97316;
+    box-shadow:0 0 0 3px rgba(249,115,22,.12);
+}
+
+.users-table{
+    background:#fff;
+    border-radius:18px;
+    overflow-x:auto;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.users-table table{
+    width:100%;
+    min-width:1500px;
+    border-collapse:collapse;
+}
+
+.users-table thead{
+    background:#fff3eb;
+}
+
+.users-table th{
+    padding:18px;
+    color:#f97316;
+    text-align:left;
+    font-size:15px;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+.users-table td{
+    padding:18px;
+    border-bottom:1px solid #eee;
+    color:#444;
+    white-space:nowrap;
+}
+
+.users-table tbody tr{
+    transition:.3s;
+}
+
+.users-table tbody tr:hover{
+    background:#fffaf7;
+}
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:85px;
+    padding:8px 16px;
+    border-radius:20px;
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+}
+
+.status.active{
+    background:#16a34a;
+}
+
+.status.inactive{
+    background:#dc2626;
+}
+
+.action-buttons{
+    display:flex;
+    gap:8px;
+}
+
+.action-buttons button{
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:13px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.view-btn{
+    background:#3b82f6;
+    color:#fff;
+}
+
+.view-btn:hover{
+    background:#2563eb;
+}
+
+.edit-btn{
+    background:#f97316;
+    color:#fff;
+}
+
+.edit-btn:hover{
+    background:#ea580c;
+}
+
+.delete-btn{
+    background:#dc2626;
+    color:#fff;
+}
+
+.delete-btn:hover{
+    background:#b91c1c;
+}
+
+.users-table tbody td[colspan]{
+    text-align:center;
+    padding:35px;
+    color:#888;
+}
+
+@media(max-width:1400px){
+
+    .users-filters{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .search-box{
+        grid-column:1/-1;
+    }
+
+}
+
+@media(max-width:992px){
+
+    .users-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .create-user-btn{
+        width:100%;
+        justify-content:center;
+    }
+
+    .users-filters{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .users-page{
+        gap:18px;
+    }
+
+    .users-header h2{
+        font-size:26px;
+    }
+
+    .users-filters{
+        grid-template-columns:1fr;
+    }
+
+    .users-table table{
+        min-width:1300px;
+    }
+
+    .create-user-btn{
+        padding:13px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .users-header h2{
+        font-size:22px;
+    }
+
+    .users-header p{
+        font-size:14px;
+    }
+
+    .search-box input{
+        padding:12px 10px;
+        font-size:14px;
+    }
+
+    .users-filters select{
+        padding:12px;
+        font-size:14px;
+    }
+
+    .users-table th,
+    .users-table td{
+        padding:14px;
+        font-size:14px;
+    }
+
+    .action-buttons{
+        flex-direction:column;
+    }
+
+    .action-buttons button{
+        width:100%;
+    }
+
+}

@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "../../supabase/supabase";
 import "./CenterList.css";
-
 import {
   FaSearch,
   FaEdit,
@@ -19,6 +18,14 @@ const CentreList = () => {
   const [status, setStatus] = useState("All");
   const [sort, setSort] = useState("ASC");
 
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const role = user?.role;
+  const userDistrict = user?.district_id;
+
+  const canManageCentres =
+    role === "DISTRICT_ADMIN" || role === "CENTRE_ADMIN";
+
   useEffect(() => {
     fetchCentres();
   }, []);
@@ -26,15 +33,24 @@ const CentreList = () => {
   const fetchCentres = async () => {
     setLoading(true);
 
-    const { data, error } = await supabase
+    let query = supabase
       .from("health_centers")
-      .select("*")
-      .order("name");
+      .select("*");
+
+    if (role === "DISTRICT_ADMIN") {
+      query = query.eq("district_id", userDistrict);
+    }
+
+    if (role === "CENTRE_ADMIN") {
+      query = query.eq("id", user?.center_id);
+    }
+
+    const { data, error } = await query.order("name");
 
     if (error) {
       console.error(error);
     } else {
-      setCentres(data);
+      setCentres(data || []);
     }
 
     setLoading(false);
@@ -54,11 +70,15 @@ const CentreList = () => {
     }
 
     if (district !== "All") {
-      data = data.filter((centre) => centre.district === district);
+      data = data.filter(
+        (centre) => centre.district === district
+      );
     }
 
     if (type !== "All") {
-      data = data.filter((centre) => centre.centre_type === type);
+      data = data.filter(
+        (centre) => centre.centre_type === type
+      );
     }
 
     if (status !== "All") {
@@ -76,17 +96,25 @@ const CentreList = () => {
     );
 
     return data;
-  }, [centres, search, district, type, status, sort]);
-
-  return (
+  }, [
+    centres,
+    search,
+    district,
+    type,
+    status,
+    sort,
+  ]);
+    return (
     <div className="centre-card">
       <div className="centre-header">
         <h2>Health Centres</h2>
 
-        <button className="add-btn">
-          <FaPlus />
-          Add Centre
-        </button>
+        {canManageCentres && (
+          <button className="add-btn">
+            <FaPlus />
+            Add Centre
+          </button>
+        )}
       </div>
 
       <div className="filter-section">
@@ -101,18 +129,20 @@ const CentreList = () => {
           />
         </div>
 
-        <select
-          value={district}
-          onChange={(e) => setDistrict(e.target.value)}
-        >
-          <option value="All">All Districts</option>
+        {role !== "DISTRICT_ADMIN" && role !== "CENTRE_ADMIN" && (
+          <select
+            value={district}
+            onChange={(e) => setDistrict(e.target.value)}
+          >
+            <option value="All">All Districts</option>
 
-          {districts.map((district) => (
-            <option key={district} value={district}>
-              {district}
-            </option>
-          ))}
-        </select>
+            {districts.map((district) => (
+              <option key={district} value={district}>
+                {district}
+              </option>
+            ))}
+          </select>
+        )}
 
         <select
           value={type}
@@ -158,50 +188,56 @@ const CentreList = () => {
                 <th>Address</th>
                 <th>Contact</th>
                 <th>Status</th>
-                <th>Action</th>
+
+                {canManageCentres && <th>Action</th>}
               </tr>
             </thead>
 
             <tbody>
-              {filteredCentres.map((centre) => (
-                <tr key={centre.id}>
-                  <td>{centre.name}</td>
+              {filteredCentres.length > 0 ? (
+                filteredCentres.map((centre) => (
+                  <tr key={centre.id}>
+                    <td>{centre.name}</td>
 
-                  <td>{centre.district}</td>
+                    <td>{centre.district}</td>
 
-                  <td>{centre.centre_type}</td>
+                    <td>{centre.centre_type}</td>
 
-                  <td>{centre.address}</td>
+                    <td>{centre.address}</td>
 
-                  <td>{centre.contact_number}</td>
+                    <td>{centre.contact_number}</td>
 
-                  <td>
-                    <span
-                      className={
-                        centre.is_active
-                          ? "status active"
-                          : "status inactive"
-                      }
-                    >
-                      {centre.is_active ? "Active" : "Inactive"}
-                    </span>
-                  </td>
+                    <td>
+                      <span
+                        className={
+                          centre.is_active
+                            ? "status active"
+                            : "status inactive"
+                        }
+                      >
+                        {centre.is_active ? "Active" : "Inactive"}
+                      </span>
+                    </td>
 
-                  <td>
-                    <button className="icon-btn edit">
-                      <FaEdit />
-                    </button>
+                    {canManageCentres && (
+                      <td>
+                        <button className="icon-btn edit">
+                          <FaEdit />
+                        </button>
 
-                    <button className="icon-btn delete">
-                      <FaTrash />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-
-              {!filteredCentres.length && (
+                        <button className="icon-btn delete">
+                          <FaTrash />
+                        </button>
+                      </td>
+                    )}
+                  </tr>
+                ))
+              ) : (
                 <tr>
-                  <td colSpan="7" style={{ textAlign: "center" }}>
+                  <td
+                    colSpan={canManageCentres ? 7 : 6}
+                    style={{ textAlign: "center" }}
+                  >
                     No Health Centres Found
                   </td>
                 </tr>

@@ -29,9 +29,17 @@ const CenterDetails = () => {
   const fetchCentres = async () => {
     setLoading(true);
 
-    let query = supabase.from("health_centers").select("*");
+    let query = supabase.from("health_centers").select(`
+    *,
+    district:district_id (
+      id,
+      name
+    )
+  `).order("name");;
 
-    if (role !== "DISTRICT_ADMIN") {
+    if (role === "DISTRICT_ADMIN") {
+      query = query.eq("district_id", user?.district_id);
+    } else {
       query = query.eq("id", centreId);
     }
 
@@ -43,9 +51,9 @@ const CenterDetails = () => {
       return;
     }
 
-    setCentres(data);
+    setCentres(data || []);
 
-    if (data.length > 0) {
+    if (data?.length) {
       setSelectedId(data[0].id);
     }
 
@@ -70,7 +78,7 @@ const CenterDetails = () => {
         {role === "DISTRICT_ADMIN" && (
           <select
             value={selectedId}
-            onChange={(e) => setSelectedId(Number(e.target.value))}
+            onChange={(e) => setSelectedId(e.target.value)}
           >
             {centres.map((centre) => (
               <option key={centre.id} value={centre.id}>
@@ -100,7 +108,7 @@ const CenterDetails = () => {
           <div>
             <FaMapMarkerAlt />
             <span>District</span>
-            <p>{centre.district}</p>
+            <p>{centre.district?.name}</p>
           </div>
 
           <div>

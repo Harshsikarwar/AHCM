@@ -25,6 +25,8 @@ const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
+  const role = JSON.parse(localStorage.getItem("user") || "{}").role || "";
+
   const closeSidebar = () => setOpen(false);
 
   const handleLogout = async () => {
@@ -35,8 +37,11 @@ const Sidebar = () => {
       return;
     }
 
+    localStorage.clear();
     navigate("/login", { replace: true });
   };
+
+  const hasRole = (...roles) => roles.includes(role);
 
   return (
     <>
@@ -66,62 +71,84 @@ const Sidebar = () => {
             <span>Dashboard</span>
           </NavLink>
 
-          <NavLink to="/centres" onClick={closeSidebar}>
-            <FaHospital />
-            <span>Health Centres</span>
-          </NavLink>
+          {hasRole("DISTRICT_ADMIN", "CENTER_ADMIN") && (
+            <NavLink to="/centres" onClick={closeSidebar}>
+              <FaHospital />
+              <span>Health Centres</span>
+            </NavLink>
+          )}
 
-          <NavLink to="/medicines" onClick={closeSidebar}>
-            <FaPills />
-            <span>Medicines</span>
-          </NavLink>
+          {hasRole("DISTRICT_ADMIN", "CENTER_ADMIN", "PHARMACIST") && (
+            <NavLink to="/medicines" onClick={closeSidebar}>
+              <FaPills />
+              <span>Medicines</span>
+            </NavLink>
+          )}
 
-          <NavLink to="/patient_footfall" onClick={closeSidebar}>
-            <FaUser />
-            <span>Patient Footfall</span>
-          </NavLink>
+          {hasRole("DISTRICT_ADMIN", "CENTER_ADMIN", "DATA_ENTRY_OPERATOR") && (
+            <NavLink to="/patient_footfall" onClick={closeSidebar}>
+              <FaUser />
+              <span>Patient Footfall</span>
+            </NavLink>
+          )}
 
-          <NavLink to="/doctors" onClick={closeSidebar}>
-            <FaUserMd />
-            <span>Doctors</span>
-          </NavLink>
+          {hasRole("DISTRICT_ADMIN", "CENTER_ADMIN", "DOCTOR") && (
+            <NavLink to="/doctors" onClick={closeSidebar}>
+              <FaUserMd />
+              <span>Doctors</span>
+            </NavLink>
+          )}
 
-          <NavLink to="/laboratory" onClick={closeSidebar}>
-            <FaFlask />
-            <span>Laboratory</span>
-          </NavLink>
+          {hasRole("DISTRICT_ADMIN", "CENTER_ADMIN", "LAB_TECHNICIAN") && (
+            <NavLink to="/laboratory" onClick={closeSidebar}>
+              <FaFlask />
+              <span>Laboratory</span>
+            </NavLink>
+          )}
 
-          <NavLink to="/beds" onClick={closeSidebar}>
-            <FaBed />
-            <span>Beds</span>
-          </NavLink>
+          {hasRole("DISTRICT_ADMIN", "CENTER_ADMIN", "DATA_ENTRY_OPERATOR") && (
+            <NavLink to="/beds" onClick={closeSidebar}>
+              <FaBed />
+              <span>Beds</span>
+            </NavLink>
+          )}
 
-          <NavLink to="/analytics" onClick={closeSidebar}>
-            <FaChartLine />
-            <span>Analytics</span>
-          </NavLink>
+          {hasRole("DISTRICT_ADMIN", "CENTER_ADMIN") && (
+            <NavLink to="/analytics" onClick={closeSidebar}>
+              <FaChartLine />
+              <span>Analytics</span>
+            </NavLink>
+          )}
 
-          <NavLink to="/ai-insights" onClick={closeSidebar}>
-            <FaRobot />
-            <span>AI Insights</span>
-          </NavLink>
+          {hasRole("DISTRICT_ADMIN", "CENTER_ADMIN") && (
+            <NavLink to="/ai-insights" onClick={closeSidebar}>
+              <FaRobot />
+              <span>AI Insights</span>
+            </NavLink>
+          )}
 
-          <NavLink to="/alerts" onClick={closeSidebar}>
-            <FaExclamationTriangle />
-            <span>Alerts</span>
-          </NavLink>
+          {hasRole("DISTRICT_ADMIN", "CENTER_ADMIN") && (
+            <NavLink to="/alerts" onClick={closeSidebar}>
+              <FaExclamationTriangle />
+              <span>Alerts</span>
+            </NavLink>
+          )}
 
-          <NavLink to="/users" onClick={closeSidebar}>
-            <FaUsers />
-            <span>Users</span>
-          </NavLink>
+          {hasRole("DISTRICT_ADMIN", "CENTER_ADMIN") && (
+            <NavLink to="/users" onClick={closeSidebar}>
+              <FaUsers />
+              <span>Users</span>
+            </NavLink>
+          )}
         </nav>
 
         <div className="sidebar-bottom">
-          <NavLink to="/settings" onClick={closeSidebar}>
-            <FaCog />
-            <span>Settings</span>
-          </NavLink>
+          {hasRole("DISTRICT_ADMIN", "CENTER_ADMIN") && (
+            <NavLink to="/settings" onClick={closeSidebar}>
+              <FaCog />
+              <span>Settings</span>
+            </NavLink>
+          )}
 
           <button
             className="logout-btn"

@@ -1,5 +1,4 @@
 import "../styles/healthcenters.css";
-
 import CenterList from "../components/CenterList/CenterList";
 import CenterDetails from "../components/CenterDetails/CenterDetails";
 
