@@ -1,5 +1,6 @@
 import MedicineStock from '../components/MedicineStock/MedicineStock';
 import MedicineStockHistory from '../components/MedicineStockHistroy/MedicineStockHistroy';
+import StockPrediction from '../components/StockPrediction/StockPrediction';
 import '../styles/medicine.css';
 export default function Medicine(){
     return(
@@ -9,6 +10,9 @@ export default function Medicine(){
         </div>
         <div className='MCard2'>
             <MedicineStockHistory/>
+        </div>
+        <div className='MCard2'>
+            <StockPrediction/>
         </div>
         </>
     )

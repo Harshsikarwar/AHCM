@@ -21,7 +21,7 @@ export default function HealthCenters() {
                 </>
             )}
 
-            {role === "CENTRE_ADMIN" && (
+            {role === "CENTER_ADMIN" && (
                 <div className="HCCard">
                     <CenterDetails />
                 </div>

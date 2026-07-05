@@ -24,7 +24,7 @@ const CentreList = () => {
   const userDistrict = user?.district_id;
 
   const canManageCentres =
-    role === "DISTRICT_ADMIN" || role === "CENTRE_ADMIN";
+    role === "DISTRICT_ADMIN" || role === "CENTER_ADMIN";
 
   useEffect(() => {
     fetchCentres();
@@ -41,7 +41,7 @@ const CentreList = () => {
       query = query.eq("district_id", userDistrict);
     }
 
-    if (role === "CENTRE_ADMIN") {
+    if (role === "CENTER_ADMIN") {
       query = query.eq("id", user?.center_id);
     }
 
@@ -129,7 +129,7 @@ const CentreList = () => {
           />
         </div>
 
-        {role !== "DISTRICT_ADMIN" && role !== "CENTRE_ADMIN" && (
+        {role !== "DISTRICT_ADMIN" && role !== "CENTER_ADMIN" && (
           <select
             value={district}
             onChange={(e) => setDistrict(e.target.value)}

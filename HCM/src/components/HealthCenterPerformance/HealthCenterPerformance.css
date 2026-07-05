@@ -1,0 +1,281 @@
+.performance-page{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+.performance-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.performance-header h2{
+    font-size:30px;
+    color:#222;
+    margin-bottom:6px;
+}
+
+.performance-header p{
+    color:#777;
+    font-size:15px;
+}
+
+.performance-filters{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:18px;
+}
+
+.search-box{
+    display:flex;
+    align-items:center;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:0 16px;
+    transition:.3s;
+}
+
+.search-box:focus-within{
+    border-color:#f97316;
+    box-shadow:0 0 0 3px rgba(249,115,22,.12);
+}
+
+.search-box svg{
+    color:#f97316;
+    font-size:15px;
+}
+
+.search-box input{
+    width:100%;
+    padding:14px 12px;
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:15px;
+}
+
+.performance-filters select{
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:14px;
+    background:#fff;
+    outline:none;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.performance-filters select:focus{
+    border-color:#f97316;
+    box-shadow:0 0 0 3px rgba(249,115,22,.12);
+}
+
+.performance-table{
+    background:#fff;
+    border-radius:20px;
+    overflow-x:auto;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+
+.performance-table table{
+    width:100%;
+    min-width:1500px;
+    border-collapse:collapse;
+}
+
+.performance-table thead{
+    background:#fff3eb;
+}
+
+.performance-table th{
+    padding:18px;
+    text-align:left;
+    color:#f97316;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+.performance-table td{
+    padding:18px;
+    border-bottom:1px solid #eee;
+    vertical-align:middle;
+    white-space:nowrap;
+}
+
+.performance-table tbody tr{
+    transition:.3s;
+}
+
+.performance-table tbody tr:hover{
+    background:#fffaf7;
+}
+
+.centre-name{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:600;
+}
+
+.centre-name svg{
+    color:#f97316;
+    font-size:18px;
+}
+
+.score-bar{
+    position:relative;
+    width:180px;
+    height:26px;
+    background:#f4f4f4;
+    border-radius:30px;
+    overflow:hidden;
+}
+
+.score-fill{
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    background:linear-gradient(135deg,#f97316,#dc2626);
+    border-radius:30px;
+    transition:.4s;
+}
+
+.score-bar span{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    font-weight:700;
+    color:#222;
+    z-index:2;
+}
+
+.overall-score{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:700;
+    color:#dc2626;
+    font-size:18px;
+}
+
+.overall-score svg{
+    color:#f97316;
+}
+
+.performance-badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:100px;
+    padding:8px 16px;
+    border-radius:25px;
+    color:#fff;
+    font-size:13px;
+    font-weight:700;
+}
+
+.performance-badge.excellent{
+    background:#16a34a;
+}
+
+.performance-badge.good{
+    background:#f97316;
+}
+
+.performance-badge.average{
+    background:#facc15;
+    color:#222;
+}
+
+.performance-badge.poor{
+    background:#dc2626;
+}
+
+.date{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#666;
+}
+
+.date svg{
+    color:#f97316;
+}
+
+.performance-table td[colspan]{
+    text-align:center;
+    padding:40px;
+    color:#777;
+    font-size:17px;
+}
+
+@media(max-width:1200px){
+
+    .performance-filters{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .search-box{
+        grid-column:1/-1;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .performance-page{
+        gap:18px;
+    }
+
+    .performance-header h2{
+        font-size:26px;
+    }
+
+    .performance-filters{
+        grid-template-columns:1fr;
+    }
+
+    .performance-table table{
+        min-width:1400px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .performance-header h2{
+        font-size:22px;
+    }
+
+    .performance-header p{
+        font-size:14px;
+    }
+
+    .search-box input{
+        font-size:14px;
+        padding:12px 10px;
+    }
+
+    .performance-filters select{
+        padding:12px;
+        font-size:14px;
+    }
+
+    .performance-table th,
+    .performance-table td{
+        padding:14px;
+        font-size:14px;
+    }
+
+    .score-bar{
+        width:150px;
+    }
+
+}

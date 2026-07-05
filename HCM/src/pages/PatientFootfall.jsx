@@ -4,6 +4,7 @@ import DailyPatientCount from "../components/DailyPatientCount/DailyPatientCount
 import ChartCard from "../components/ChartCard/ChartCard";
 import PatientRecords from "../components/PatientRecords/PatientRecords";
 import "../styles/patientfootfall.css";
+import PatientFootfallPrediction from "../components/PatientFootfallPrediction/PatientFootfallPrediction";
 
 const weeklyOptions = {
   responsive: true,
@@ -165,6 +166,9 @@ export default function PatientFootfall() {
           data={monthlyPatientData}
           options={monthlyOptions}
         />
+      </div>
+      <div className="PFCard2">
+        <PatientFootfallPrediction/>
       </div>
     </>
   );

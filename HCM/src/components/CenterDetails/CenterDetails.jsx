@@ -16,7 +16,7 @@ const CenterDetails = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const role = user?.role;
-  const centreId = user?.centre_id ?? user?.centreId;
+  const centreId = user?.center_id ?? user?.centerId;
 
   const [centres, setCentres] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
@@ -160,7 +160,7 @@ const CenterDetails = () => {
         </div>
       </div>
 
-      {(role === "DISTRICT_ADMIN" || role === "CENTRE_ADMIN") && (
+      {(role === "DISTRICT_ADMIN" || role === "CENTER_ADMIN") && (
         <button className="edit-centre-btn">
           <FaEdit />
           Edit Centre

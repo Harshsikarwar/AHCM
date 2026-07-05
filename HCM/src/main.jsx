@@ -21,7 +21,9 @@ import Laboratory from "./pages/Laboratory";
 import Bed from "./pages/Bed";
 import PatientFootfall from "./pages/PatientFootfall";
 import CreateUser from "./pages/CreateUser";
-import Users from './pages/Users'
+import Users from './pages/Users';
+import AIInsights from "./pages/AIInsights";
+import Analytics from "./pages/Analytics";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +76,14 @@ const router = createBrowserRouter([
           {
             path: "/users/create",
             element: <CreateUser />,
+          },
+          {
+            path: "/ai-insights",
+            element: <AIInsights />,
+          },
+          {
+            path: "/analytics",
+            element: <Analytics />,
           },
         ],
       },
