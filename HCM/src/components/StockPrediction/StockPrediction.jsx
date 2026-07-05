@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 import "./StockPrediction.css";
 
-const API_URL = "http://localhost:8000/api/ai_features/stockprediction/";
+const API_URL = "https://mysite-ngn3.onrender.com/api/ai_features/stockprediction/";
 
 const StockPrediction = () => {
   const [predictions, setPredictions] = useState([]);

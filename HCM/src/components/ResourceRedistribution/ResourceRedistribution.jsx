@@ -23,7 +23,7 @@ const ResourceRedistribution = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:8000/api/ai_features/resourceredistribution/"
+        "https://mysite-ngn3.onrender.com/api/ai_features/resourceredistribution/"
       );
 
       if (!response.ok) {

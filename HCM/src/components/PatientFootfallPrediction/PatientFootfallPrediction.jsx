@@ -23,7 +23,7 @@ const PatientFootfallPrediction = () => {
 
     try {
         const response = await fetch(
-        "http://localhost:8000/api/ai_features/patientfootfall/"
+        "https://mysite-ngn3.onrender.com/api/ai_features/patientfootfall/"
         );
 
         if (!response.ok) {
