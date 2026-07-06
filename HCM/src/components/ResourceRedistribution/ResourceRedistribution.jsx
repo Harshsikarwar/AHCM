@@ -16,6 +16,7 @@ const ResourceRedistribution = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  let lang = localStorage.getItem("language");
 
   const fetchRedistribution = async () => {
     setLoading(true);
@@ -23,7 +24,7 @@ const ResourceRedistribution = () => {
 
     try {
       const response = await fetch(
-        "https://mysite-ngn3.onrender.com/api/ai_features/resourceredistribution/"
+        "https://mysite-ngn3.onrender.com/api/ai_features/resourceredistribution/"+lang+"/"
       );
 
       if (!response.ok) {

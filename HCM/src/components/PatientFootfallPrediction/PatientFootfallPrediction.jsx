@@ -16,6 +16,7 @@ const PatientFootfallPrediction = () => {
   const [prediction, setPrediction] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  let lang = localStorage.getItem("language");
 
   const fetchPrediction = async () => {
     setLoading(true);
@@ -23,7 +24,7 @@ const PatientFootfallPrediction = () => {
 
     try {
         const response = await fetch(
-        "https://mysite-ngn3.onrender.com/api/ai_features/patientfootfall/"
+        "https://mysite-ngn3.onrender.com/api/ai_features/patientfootfall/"+lang+"/"
         );
 
         if (!response.ok) {

@@ -24,6 +24,8 @@ import CreateUser from "./pages/CreateUser";
 import Users from './pages/Users';
 import AIInsights from "./pages/AIInsights";
 import Analytics from "./pages/Analytics";
+import Alerts from "./pages/Alerts";
+import Settings from "./pages/Settings";
 
 const router = createBrowserRouter([
   {
@@ -84,6 +86,14 @@ const router = createBrowserRouter([
           {
             path: "/analytics",
             element: <Analytics />,
+          },
+          {
+            path: "/alerts",
+            element: <Alerts />,
+          },
+          {
+            path: "/settings",
+            element: <Settings />,
           },
         ],
       },

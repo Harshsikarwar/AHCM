@@ -12,6 +12,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  let lang = localStorage.setItem("language","English");
 
   const handleLogin = async (e) => {
     e.preventDefault();

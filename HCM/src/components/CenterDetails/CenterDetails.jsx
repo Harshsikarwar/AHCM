@@ -157,6 +157,22 @@ const CenterDetails = () => {
             <span>Longitude</span>
             <p>{centre.longitude}</p>
           </div>
+
+          {centre.latitude && centre.longitude && (
+            <div className="google-map">
+
+              <iframe
+                title="Health Centre Location"
+                width="100%"
+                height="320"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                src={`https://www.google.com/maps?q=${centre.latitude},${centre.longitude}&z=15&output=embed`}
+              />
+
+            </div>
+          )}
         </div>
       </div>
 
